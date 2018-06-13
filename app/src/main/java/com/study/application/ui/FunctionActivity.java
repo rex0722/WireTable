@@ -53,28 +53,30 @@ public class FunctionActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        Button borrowBtn = findViewById(R.id.borrowBtn);
-        Button returnBtn = findViewById(R.id.returnBtn);
-        Button searchBtn = findViewById(R.id.searchBtn);
+        Button borrowBtn = findViewById(R.id.borrowedBtn);
+        Button returnBtn = findViewById(R.id.returnedBtn);
+        Button searchBtn = findViewById(R.id.searchedBtn);
 
         Button.OnClickListener listener = view -> {
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
 
             switch (view.getId()) {
-                case R.id.borrowBtn:
+                case R.id.borrowedBtn:
                     bundle.putString("FUNCTION_STRING", getResources().getString(R.string.borrow_item));
                     intent.putExtras(bundle);
                     intent.setClass(this, BorrowReturnActivity.class);
                     startActivity(intent);
                     break;
-                case R.id.returnBtn:
+                case R.id.returnedBtn:
                     bundle.putString("FUNCTION_STRING", getResources().getString(R.string.return_item));
                     intent.putExtras(bundle);
                     intent.setClass(this, BorrowReturnActivity.class);
                     startActivity(intent);
                     break;
-                case R.id.searchBtn:
+                case R.id.searchedBtn:
+                    intent.setClass(this, SearchActivity.class);
+                    startActivity(intent);
                     break;
             }
         };

@@ -22,7 +22,8 @@
         <activity android:name=".scanner.ScanQrCodeActivity" />
         <activity android:name=".ui.WelcomeActivity" />
         <activity android:name=".ui.FunctionActivity" />
-        <activity android:name=".ui.BorrowReturnActivity"></activity>
+        <activity android:name=".ui.BorrowReturnActivity" />
+        <activity android:name=".ui.SearchActivity"></activity>
     </application>
 
 </manifest>

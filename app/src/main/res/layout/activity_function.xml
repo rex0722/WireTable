@@ -21,27 +21,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/borrowBtn"
+        android:id="@+id/borrowedBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="57dp"
         android:text="@string/borrow"
-        app:layout_constraintStart_toStartOf="@+id/returnBtn"
+        app:layout_constraintStart_toStartOf="@+id/returnedBtn"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/returnBtn"
+        android:id="@+id/returnedBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="120dp"
         android:layout_marginTop="120dp"
         android:text="@string/back"
-        app:layout_constraintBottom_toBottomOf="@+id/searchBtn"
-        app:layout_constraintStart_toStartOf="@+id/searchBtn"
-        app:layout_constraintTop_toTopOf="@+id/borrowBtn" />
+        app:layout_constraintBottom_toBottomOf="@+id/searchedBtn"
+        app:layout_constraintStart_toStartOf="@+id/searchedBtn"
+        app:layout_constraintTop_toTopOf="@+id/borrowedBtn" />
 
     <Button
-        android:id="@+id/searchBtn"
+        android:id="@+id/searchedBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="129dp"
