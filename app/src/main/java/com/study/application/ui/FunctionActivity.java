@@ -75,6 +75,8 @@ public class FunctionActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.id.searchBtn:
+                    intent.setClass(this, SearchActivity.class);
+                    startActivity(intent);
                     break;
             }
         };
