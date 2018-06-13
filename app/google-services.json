@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "711591401345",
+    "firebase_url": "https://wiretable-bca2a.firebaseio.com",
+    "project_id": "wiretable-bca2a",
+    "storage_bucket": "wiretable-bca2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711591401345:android:bb2151e1af3e3098",
+        "android_client_info": {
+          "package_name": "com.study.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711591401345-i0tnmcmmfb9qalu0n3q82rda963mjn66.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.study.application",
+            "certificate_hash": "839e32f2b1a8124b0770b8cece47666607e8a4f0"
+          }
+        },
+        {
+          "client_id": "711591401345-aoq010j141ljhohviv2qqbklodujke0t.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "711591401345-aoq010j141ljhohviv2qqbklodujke0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdX7ZJrKMYkzAL_pdC2BEQ1KoKZ0g0dwQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711591401345-aoq010j141ljhohviv2qqbklodujke0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
