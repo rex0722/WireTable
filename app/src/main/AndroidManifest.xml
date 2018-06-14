@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.SearchActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
         <activity android:name=".ui.WelcomeActivity" />
         <activity android:name=".ui.FunctionActivity" />
         <activity android:name=".ui.BorrowReturnActivity" />
-        <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".ui.SearchActivity"></activity>
     </application>
 
 </manifest>
