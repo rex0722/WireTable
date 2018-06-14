@@ -46,17 +46,13 @@ public class ListViewDataAdapter extends BaseAdapter{
         TextView txtClassification = convertView.findViewById(R.id.txtClassification);
         TextView txtDate = convertView.findViewById(R.id.txtDate);
         TextView txtUser = convertView.findViewById(R.id.txtUser);
-        TextView txtAvailable = convertView.findViewById(R.id.txtAvailable);
+        TextView txtStatus = convertView.findViewById(R.id.txtStatus);
 
         txtIndex.setText(dataArrayList.get(position).getIndex());
         txtClassification.setText(dataArrayList.get(position).getClassification());
         txtDate.setText(dataArrayList.get(position).getDate());
         txtUser.setText(dataArrayList.get(position).getUser());
-
-        if (dataArrayList.get(position).getAvailable())
-            txtAvailable.setText(R.string.status_return);
-        else
-            txtAvailable.setText(R.string.status_borrow);
+        txtStatus.setText(dataArrayList.get(position).getStatus());
 
         return convertView;
     }

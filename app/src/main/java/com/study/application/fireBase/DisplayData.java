@@ -1,21 +1,23 @@
 package com.study.application.fireBase;
 
 
-public class DisplayData {
+import java.io.Serializable;
 
-    private boolean available;
-    private String index, user, date, classification;
+public class DisplayData implements Serializable {
 
-    public DisplayData(boolean available, String index, String user, String date, String classification){
-        this.available = available;
+
+     private String index, user, date, classification, status;
+
+    public DisplayData(String status, String index, String user, String date, String classification){
+        this.status = status;
         this.index = index;
         this.user = user;
         this.date = date;
         this.classification = classification;
     }
 
-    public boolean getAvailable(){
-        return available;
+    public String getStatus(){
+        return status;
     }
 
     public String getIndex(){
@@ -33,5 +35,6 @@ public class DisplayData {
     public  String getClassification(){
         return classification;
     }
+
 
 }

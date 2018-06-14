@@ -6,10 +6,12 @@
     android:background="@drawable/corner">
 
     <TableRow>
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_gravity="right"
             android:text="@string/txt_index"
             android:textColor="#003377"
             android:textSize="25sp"/>
@@ -21,11 +23,14 @@
             android:layout_weight="4"
             android:text=""
             android:textSize="25sp"/>
+    </TableRow>
 
+    <TableRow>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_gravity="right"
             android:text="@string/txt_classification"
             android:textSize="25sp"/>
 
@@ -42,8 +47,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_date"
             android:layout_weight="1"
+            android:layout_gravity="right"
+            android:text="@string/txt_date"
             android:textSize="25sp"/>
 
         <TextView
@@ -54,11 +60,15 @@
             android:layout_weight="4"
             android:textSize="25sp"/>
 
+    </TableRow>
+
+    <TableRow>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/txt_user"
             android:layout_weight="1"
+            android:layout_gravity="right"
+            android:text="@string/txt_user"
             android:textSize="25sp"/>
 
         <TextView
@@ -74,17 +84,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="right"
             android:text="@string/txt_status"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/txtAvailable"
+            android:id="@+id/txtStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="4"
             android:text=""
             android:textSize="25sp"/>
     </TableRow>
 
+    <TableRow android:background="@drawable/line"/>
 
 </TableLayout>
 
