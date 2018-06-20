@@ -118,12 +118,11 @@ public class BorrowReturnActivity extends AppCompatActivity {
 
     private void setEditText() {
         // date
-//        dateEdt.setText(String.valueOf(System.currentTimeMillis()));
         dateEdt.setText(dateFormat.format(date.getTime()));
 
         // name
         nameEdt.setText(WelcomeActivity.userName);
-//        nameEdt.setText("Rex");
+
         // item
         Bundle bundle = getIntent().getExtras();
         String s = bundle.getString("FUNCTION_STRING");

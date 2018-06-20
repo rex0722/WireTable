@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(intent);
 
-//            Intent intent = new Intent(MainActivity.this, BorrowReturnActivity.class);
-//            startActivity(intent);
         });
     }
 }
