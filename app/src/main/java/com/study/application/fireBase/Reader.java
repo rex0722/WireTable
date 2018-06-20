@@ -17,19 +17,19 @@ import java.util.ArrayList;
 
 public class Reader {
 
-    private ArrayList<DisplayData> dataArrayList = new ArrayList<>();
-    private ArrayList<DisplayData> conditionDataArrayList = new ArrayList<>();
-    private ArrayList<String> itemArrayList = new ArrayList<>();
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference reference = database.getReference("Record");
+    private final ArrayList<DisplayData> dataArrayList = new ArrayList<>();
+    private final ArrayList<DisplayData> conditionDataArrayList = new ArrayList<>();
+    private final ArrayList<String> itemArrayList = new ArrayList<>();
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private final DatabaseReference reference = database.getReference("Record");
 
-    public void allDataSearch(){
+    public void allDataSearch() {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 dataArrayList.clear();
 
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     dataArrayList.add(new DisplayData(
                             ds.child("status").getValue().toString(),
                             ds.getKey(),
@@ -52,7 +52,7 @@ public class Reader {
         });
     }
 
-    public void spinnerElementSearch(String selectItem){
+    public void spinnerElementSearch(String selectItem) {
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -61,13 +61,13 @@ public class Reader {
                 String keyWord = keyWordJudge(selectItem);
                 itemArrayList.clear();
 
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (!itemArrayList.contains(ds.child(keyWord).getValue().toString()))
                         itemArrayList.add(ds.child(keyWord).getValue().toString());
                 }
 
                 Intent intent = new Intent("SpinnerItemElement");
-                intent.putExtra("SpinnerItemElementArray", itemArrayList.toArray(new String [itemArrayList.size()]));
+                intent.putExtra("SpinnerItemElementArray", itemArrayList.toArray(new String[itemArrayList.size()]));
                 SearchActivity.searchContext.sendBroadcast(intent);
             }
 
@@ -79,15 +79,15 @@ public class Reader {
 
     }
 
-    public void conditionSearch(String word, String value){
+    public void conditionSearch(String word, String value) {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 conditionDataArrayList.clear();
                 String keyWord = keyWordJudge(word);
 
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    if (ds.child(keyWord).getValue().toString().equals(value)){
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (ds.child(keyWord).getValue().toString().equals(value)) {
                         conditionDataArrayList.add(new DisplayData(
                                 ds.child("status").getValue().toString(),
                                 ds.getKey(),
@@ -112,11 +112,11 @@ public class Reader {
     }
 
 
-    private String keyWordJudge(String word){
+    private String keyWordJudge(String word) {
 
         String keyWord = "";
 
-        switch (word){
+        switch (word) {
             case "品項":
                 keyWord = "classification";
                 break;

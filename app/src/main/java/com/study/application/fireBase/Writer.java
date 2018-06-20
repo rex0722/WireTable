@@ -10,8 +10,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Writer{
 
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference reference = database.getReference("Record");
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private final DatabaseReference reference = database.getReference("Record");
 
     public void writeToDatabase(String index, String date, String name, String status, long dateTime){
         reference.child(index).child("date").setValue(date);

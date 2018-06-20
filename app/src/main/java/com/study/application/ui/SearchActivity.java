@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,18 +27,14 @@ public class SearchActivity extends AppCompatActivity {
     private final String TAG = "SearchActivity";
     public static Context searchContext;
 
-    ListView lvData;
-    Spinner spnType, spnItem;
-    Button btnSearch;
-    ListViewDataAdapter adapter;
+    private ListView lvData;
+    private Spinner spnType;
+    private Spinner spnItem;
+    private Button btnSearch;
 
-    DataBroadcast dataBroadcast = new DataBroadcast();
-    Reader reader = new Reader();
-    ArrayList<DisplayData> dataArrayList = new ArrayList<>();
-    ArrayList<DisplayData> conditionDataArrayList = new ArrayList<>();
-    ArrayAdapter<CharSequence> spnTypeAdapter;
-    ArrayAdapter<String> spnItemAdapter;
-
+    private final DataBroadcast dataBroadcast = new DataBroadcast();
+    private final Reader reader = new Reader();
+    private ArrayAdapter<CharSequence> spnTypeAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,24 +53,21 @@ public class SearchActivity extends AppCompatActivity {
 //        reader.allDataSearch();
     }
 
-    private void findViews(){
+    private void findViews() {
         spnType = findViewById(R.id.spnType);
         spnItem = findViewById(R.id.spnItem);
         btnSearch = findViewById(R.id.btnSearch);
         lvData = findViewById(R.id.lvData);
     }
 
-    private void broadcastRegister(){
+    private void broadcastRegister() {
         registerReceiver(dataBroadcast, new IntentFilter("DelverData"));
         registerReceiver(dataBroadcast, new IntentFilter("SpinnerItemElement"));
         registerReceiver(dataBroadcast, new IntentFilter("DelverConditionData"));
     }
 
-    private void setListeners(){
-        btnSearch.setOnClickListener(v -> {
-                reader.conditionSearch(spnType.getSelectedItem().toString(), spnItem.getSelectedItem().toString());
-            }
-        );
+    private void setListeners() {
+        btnSearch.setOnClickListener(v -> reader.conditionSearch(spnType.getSelectedItem().toString(), spnItem.getSelectedItem().toString()));
 
         spnType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -89,21 +82,26 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
-    private void setSpinnerTypeElements(){
+    private void setSpinnerTypeElements() {
         spnTypeAdapter = ArrayAdapter.createFromResource(searchContext, R.array.search_type, R.layout.spinner_setting);
     }
 
-    private void setSpinnerItemElements(String [] spinnerItemElements){
-        spnItemAdapter = new ArrayAdapter<>(searchContext, R.layout.spinner_setting,spinnerItemElements);
+    private void setSpinnerItemElements(String[] spinnerItemElements) {
+        ArrayAdapter<String> spnItemAdapter;
+
+        spnItemAdapter = new ArrayAdapter<>(searchContext, R.layout.spinner_setting, spinnerItemElements);
         spnItem.setAdapter(spnItemAdapter);
     }
 
-    private class DataBroadcast extends BroadcastReceiver{
+    private class DataBroadcast extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            ListViewDataAdapter adapter;
+            ArrayList<DisplayData> dataArrayList;
+            ArrayList<DisplayData> conditionDataArrayList;
 
-            if (intent.getAction() != null){
-                switch(intent.getAction()){
+            if (intent.getAction() != null) {
+                switch (intent.getAction()) {
                     case "DelverData":
                         dataArrayList = (ArrayList<DisplayData>) intent.getSerializableExtra("data");
                         adapter = new ListViewDataAdapter(searchContext, dataArrayList);

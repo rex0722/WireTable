@@ -1,10 +1,13 @@
 package com.study.application.fireBase;
 
 
-public class Record {
+class Record {
 
-    private long dateTime;
-    private String user, date, classification, status;
+    private final long dateTime;
+    private final String user;
+    private final String date;
+    private final String classification;
+    private final String status;
 
     public Record(String status, long dateTime, String user, String date, String classification){
         this.status = status;

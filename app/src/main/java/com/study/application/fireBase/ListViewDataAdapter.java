@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class ListViewDataAdapter extends BaseAdapter{
 
-    private LayoutInflater inflater;
-    private ArrayList<DisplayData> dataArrayList;
+    private final LayoutInflater inflater;
+    private final ArrayList<DisplayData> dataArrayList;
 
     public ListViewDataAdapter(Context c, ArrayList<DisplayData> arrayList){
         inflater = LayoutInflater.from(c);

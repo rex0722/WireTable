@@ -4,12 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -24,6 +23,7 @@ import com.study.application.scanner.ScanQrCodeActivity;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class BorrowReturnActivity extends AppCompatActivity {
 
@@ -35,16 +35,16 @@ public class BorrowReturnActivity extends AppCompatActivity {
     private EditText dateEdt;
     private EditText nameEdt;
     private EditText itemEdt;
-    Button submitBtn;
+    private Button submitBtn;
 
     private ArrayList<DisplayData> conditionDataArrayList;
-    private StatusBroadcast statusBroadcast = new StatusBroadcast();
-    private Reader reader = new Reader();
-    private Writer writer = new Writer();
+    private final StatusBroadcast statusBroadcast = new StatusBroadcast();
+    private final Reader reader = new Reader();
+    private final Writer writer = new Writer();
     public static final int REQUEST_CODE = 50;
 
-    Date date = new Date();
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    private final Date date = new Date();
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.TAIWAN);
 
 
     @Override
@@ -148,18 +148,18 @@ public class BorrowReturnActivity extends AppCompatActivity {
 
                     if (conditionDataArrayList.get(i).getIndex().contains(s)) {
                         if (status.equals(getString(R.string.status_return))) {
-                            if (conditionDataArrayList.get(i).getUser().contains(nameEdt.getText().toString())){
+                            if (conditionDataArrayList.get(i).getUser().contains(nameEdt.getText().toString())) {
                                 canBorrow_or_Return = true;
                                 break;
-                            }else {
+                            } else {
                                 message = getString(R.string.dialog_message_return_user_error);
                                 break;
                             }
-                        }else {
+                        } else {
                             canBorrow_or_Return = true;
                             break;
                         }
-                    } else{
+                    } else {
                         canBorrow_or_Return = false;
                         message = status;
                     }
