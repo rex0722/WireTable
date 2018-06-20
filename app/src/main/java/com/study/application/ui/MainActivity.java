@@ -1,5 +1,6 @@
 package com.study.application.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import com.study.application.scanner.ScanQrCodeActivity;
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
+    public static Context mContext;
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        mContext = this;
         Button loginBtn = findViewById(R.id.loginBtn);
 
         loginBtn.setOnClickListener(v -> {
@@ -48,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
             intent.setClass(this, ScanQrCodeActivity.class);
 
             startActivity(intent);
+
+//            Intent intent = new Intent(MainActivity.this, BorrowReturnActivity.class);
+//            startActivity(intent);
         });
     }
 }

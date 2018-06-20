@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.study.application.ui.MainActivity;
 import com.study.application.ui.SearchActivity;
 
 import java.util.ArrayList;
@@ -99,7 +100,7 @@ public class Reader {
 
                 Intent intent = new Intent("DelverConditionData");
                 intent.putExtra("conditionData", conditionDataArrayList);
-                SearchActivity.searchContext.sendBroadcast(intent);
+                MainActivity.mContext.sendBroadcast(intent);
             }
 
             @Override
