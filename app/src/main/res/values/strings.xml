@@ -24,7 +24,7 @@
     <string name="dialog_message_return_success">已成功歸還!</string>
     <string name="dialog_message_no_data">尚未選擇項目</string>
     <string name="dialog_button_check">確定</string>
-    <string name="dialog_message_return_user_error">不是你借用的，不可以幫別人還!!!!</string>
+    <string name="dialog_message_return_user_error">不是你借用的\n不可以幫別人還!!!!</string>
 
     <string-array name="search_type">
         <item>品項</item>
