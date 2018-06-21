@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -31,6 +32,7 @@ public class SearchActivity extends AppCompatActivity {
     private Spinner spnType;
     private Spinner spnItem;
     private Button btnSearch;
+    private boolean isDataReady = false;
 
     private final DataBroadcast dataBroadcast = new DataBroadcast();
     private final Reader reader = new Reader();
@@ -67,7 +69,12 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        btnSearch.setOnClickListener(v -> reader.conditionSearch(spnType.getSelectedItem().toString(), spnItem.getSelectedItem().toString()));
+        btnSearch.setOnClickListener(v -> {
+            Log.d(TAG, "isDataReady : " + isDataReady);
+            if (isDataReady) {
+                reader.conditionSearch(spnType.getSelectedItem().toString(), spnItem.getSelectedItem().toString());
+            }
+        });
 
         spnType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -109,6 +116,8 @@ public class SearchActivity extends AppCompatActivity {
                         break;
                     case "SpinnerItemElement":
                         setSpinnerItemElements(intent.getStringArrayExtra("SpinnerItemElementArray"));
+                        Log.d(TAG, "isDataReady : " + isDataReady);
+                        isDataReady = true;
                         break;
                     case "DelverConditionData":
                         conditionDataArrayList = (ArrayList<DisplayData>) intent.getSerializableExtra("conditionData");
