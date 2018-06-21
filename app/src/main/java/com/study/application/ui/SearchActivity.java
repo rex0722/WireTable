@@ -70,7 +70,6 @@ public class SearchActivity extends AppCompatActivity {
 
     private void setListeners() {
         btnSearch.setOnClickListener(v -> {
-            Log.d(TAG, "isDataReady : " + isDataReady);
             if (isDataReady) {
                 reader.conditionSearch(spnType.getSelectedItem().toString(), spnItem.getSelectedItem().toString());
             }
@@ -116,7 +115,6 @@ public class SearchActivity extends AppCompatActivity {
                         break;
                     case "SpinnerItemElement":
                         setSpinnerItemElements(intent.getStringArrayExtra("SpinnerItemElementArray"));
-                        Log.d(TAG, "isDataReady : " + isDataReady);
                         isDataReady = true;
                         break;
                     case "DelverConditionData":
