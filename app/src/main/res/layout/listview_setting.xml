@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/corner">
+    android:background="@drawable/listview_shape">
 
     <TableRow>
 
@@ -13,7 +13,7 @@
             android:layout_weight="1"
             android:layout_gravity="right"
             android:text="@string/txt_index"
-            android:textColor="#003377"
+            android:textColor="#4400CC"
             android:textSize="25sp"/>
 
         <TextView
@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:text=""
+            android:textColor="#4400CC"
             android:textSize="25sp"/>
     </TableRow>
 
@@ -97,8 +98,6 @@
             android:text=""
             android:textSize="25sp"/>
     </TableRow>
-
-    <TableRow android:background="@drawable/line"/>
 
 </TableLayout>
 

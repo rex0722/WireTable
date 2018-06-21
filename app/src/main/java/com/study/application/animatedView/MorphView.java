@@ -51,7 +51,7 @@ public class MorphView extends View {
         circlePaint.setStyle(Paint.Style.FILL);
         circlePaint.setStrokeWidth(W_SIZE / 10);
         circlePaint.setStrokeCap(Paint.Cap.ROUND);
-        circlePaint.setColor(Color.parseColor("#F57C00"));
+        circlePaint.setColor(Color.parseColor("#00897b"));
     }
 
     private void initAnimator() {

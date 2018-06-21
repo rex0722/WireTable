@@ -28,6 +28,7 @@
             android:focusable="false"
             android:longClickable="false"
             android:ems="10"
+            android:textSize="30sp"
             android:inputType="date" />
     </android.support.design.widget.TextInputLayout>
 
@@ -50,6 +51,7 @@
             android:layout_weight="1"
             android:focusable="false"
             android:longClickable="false"
+            android:textSize="30sp"
             android:ems="10"
             android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
@@ -72,6 +74,7 @@
             android:layout_weight="1"
             android:focusable="false"
             android:longClickable="false"
+            android:textSize="30sp"
             android:ems="10"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
@@ -83,6 +86,8 @@
         android:layout_marginEnd="40dp"
         android:layout_marginTop="32dp"
         android:text="@string/submit"
+        android:textSize="30sp"
+        android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemInputLayout" />
 </android.support.constraint.ConstraintLayout>

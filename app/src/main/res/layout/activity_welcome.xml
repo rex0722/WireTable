@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F57C00"
+    android:background="#00897b"
     android:orientation="vertical"
     tools:context=".ui.WelcomeActivity">
 
@@ -18,7 +18,7 @@
         android:layout_marginStart="26dp"
         android:layout_marginTop="90dp"
         android:textAlignment="center"
-        android:textColor="#212121"
+        android:textColor="#FFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/userImg"
         app:layout_constraintEnd_toEndOf="parent"
