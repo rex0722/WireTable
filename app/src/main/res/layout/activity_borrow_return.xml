@@ -25,11 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:focusable="false"
-            android:longClickable="false"
             android:ems="10"
-            android:textSize="30sp"
-            android:inputType="date" />
+            android:focusable="false"
+            android:inputType="date"
+            android:longClickable="false"
+            android:textSize="30dp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -49,11 +49,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:focusable="false"
-            android:longClickable="false"
-            android:textSize="30sp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:focusable="false"
+            android:inputType="textPersonName"
+            android:longClickable="false"
+            android:textSize="30dp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -72,11 +72,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:focusable="false"
-            android:longClickable="false"
-            android:textSize="30sp"
             android:ems="10"
-            android:inputType="text" />
+            android:focusable="false"
+            android:inputType="text"
+            android:longClickable="false"
+            android:textSize="30dp" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -85,9 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/button_shape"
         android:text="@string/submit"
         android:textSize="30sp"
-        android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemInputLayout" />
 </android.support.constraint.ConstraintLayout>

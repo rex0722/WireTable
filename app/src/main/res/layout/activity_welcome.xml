@@ -19,7 +19,7 @@
         android:layout_marginTop="90dp"
         android:textAlignment="center"
         android:textColor="#FFF"
-        android:textSize="30sp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/userImg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

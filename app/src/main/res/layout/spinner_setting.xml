@@ -7,5 +7,5 @@
     android:paddingLeft="8dip"
     android:singleLine="true"
     android:textColor="#000"
-    android:textSize="30sp">
+    android:textSize="30dp">
 </TextView>

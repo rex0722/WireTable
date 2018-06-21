@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.study.application.R;
 import com.study.application.fireBase.DisplayData;
@@ -45,6 +46,7 @@ public class BorrowReturnActivity extends AppCompatActivity {
 
     private final Date date = new Date();
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.TAIWAN);
+
 
 
     @Override
