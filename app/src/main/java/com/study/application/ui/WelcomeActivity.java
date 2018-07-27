@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.study.application.R;
+import com.study.application.speech.SpeechSynthesis;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -76,9 +78,11 @@ public class WelcomeActivity extends AppCompatActivity {
         if (!IconConstants.IC_PERSON_MAP.containsKey(userName) || userName.equals("NoOne")) {
             isKnownUser = false;
             s = userName + "???";
+            SpeechSynthesis.textToSpeech.speak("Who are you", TextToSpeech.QUEUE_FLUSH, null);
         } else {
             isKnownUser = true;
             s = "Welcome " + userName;
+            SpeechSynthesis.textToSpeech.speak(s,TextToSpeech.QUEUE_FLUSH, null );
         }
         welcomeTxt.setText(s);
     }

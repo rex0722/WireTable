@@ -3,6 +3,7 @@ package com.study.application.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.speech.SpeechRecognizer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
@@ -10,13 +11,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.study.application.R;
+import com.study.application.speech.SpeechRecognition;
 
 public class FunctionActivity extends AppCompatActivity {
 
     private final String TAG = "FunctionActivity";
-
     private boolean doubleBackToExitPressedOnce = false;
-
+    Intent intent = new Intent();
+    Bundle bundle = new Bundle();
 
     @Override
     public void onBackPressed() {
@@ -48,25 +50,18 @@ public class FunctionActivity extends AppCompatActivity {
         Button searchBtn = findViewById(R.id.searchedBtn);
 
         Button.OnClickListener listener = view -> {
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
+//            Intent intent = new Intent();
+//            Bundle bundle = new Bundle();
 
             switch (view.getId()) {
                 case R.id.borrowedBtn:
-                    bundle.putString("FUNCTION_STRING", getResources().getString(R.string.borrow_item));
-                    intent.putExtras(bundle);
-                    intent.setClass(this, BorrowReturnActivity.class);
-                    startActivity(intent);
+                    borrowSet();
                     break;
                 case R.id.returnedBtn:
-                    bundle.putString("FUNCTION_STRING", getResources().getString(R.string.return_item));
-                    intent.putExtras(bundle);
-                    intent.setClass(this, BorrowReturnActivity.class);
-                    startActivity(intent);
+                    returnSet();
                     break;
                 case R.id.searchedBtn:
-                    intent.setClass(this, SearchActivity.class);
-                    startActivity(intent);
+                    searchSet();
                     break;
             }
         };
@@ -74,5 +69,24 @@ public class FunctionActivity extends AppCompatActivity {
         borrowBtn.setOnClickListener(listener);
         returnBtn.setOnClickListener(listener);
         searchBtn.setOnClickListener(listener);
+    }
+
+    private void borrowSet(){
+        bundle.putString("FUNCTION_STRING", getResources().getString(R.string.borrow_item));
+        intent.putExtras(bundle);
+        intent.setClass(this, BorrowReturnActivity.class);
+        startActivity(intent);
+    }
+
+    private void returnSet(){
+        bundle.putString("FUNCTION_STRING", getResources().getString(R.string.return_item));
+        intent.putExtras(bundle);
+        intent.setClass(this, BorrowReturnActivity.class);
+        startActivity(intent);
+    }
+
+    private void searchSet(){
+        intent.setClass(this, SearchActivity.class);
+        startActivity(intent);
     }
 }
