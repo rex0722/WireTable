@@ -20,6 +20,8 @@ import com.study.application.R;
 import com.study.application.fireBase.DisplayData;
 import com.study.application.fireBase.ListViewDataAdapter;
 import com.study.application.fireBase.Reader;
+import com.study.application.speech.Classification;
+import com.study.application.speech.StatusDefinition;
 
 import java.util.ArrayList;
 
@@ -51,8 +53,16 @@ public class SearchActivity extends AppCompatActivity {
         setListeners();
         setSpinnerTypeElements();
         spnType.setAdapter(spnTypeAdapter);
+        StatusDefinition.CURRENT_STATUS = StatusDefinition.BORROW_RETURN_SEARCH;
 
 //        reader.allDataSearch();
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+        StatusDefinition.CURRENT_STATUS = StatusDefinition.BORROW_RETURN_SEARCH;
     }
 
     private void findViews() {
@@ -66,6 +76,7 @@ public class SearchActivity extends AppCompatActivity {
         registerReceiver(dataBroadcast, new IntentFilter("DelverData"));
         registerReceiver(dataBroadcast, new IntentFilter("SpinnerItemElement"));
         registerReceiver(dataBroadcast, new IntentFilter("DelverConditionData"));
+        registerReceiver(dataBroadcast, new IntentFilter(StatusDefinition.BORROW_RETURN_SEARCH));
     }
 
     private void setListeners() {
@@ -99,6 +110,14 @@ public class SearchActivity extends AppCompatActivity {
         spnItem.setAdapter(spnItemAdapter);
     }
 
+    private void voiceToSearchActivity(String inputClassification){
+        switch (inputClassification){
+            case Classification.GETBACK:
+                finish();
+                break;
+        }
+    }
+
     private class DataBroadcast extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -121,6 +140,9 @@ public class SearchActivity extends AppCompatActivity {
                         conditionDataArrayList = (ArrayList<DisplayData>) intent.getSerializableExtra("conditionData");
                         adapter = new ListViewDataAdapter(searchContext, conditionDataArrayList);
                         lvData.setAdapter(adapter);
+                        break;
+                    case StatusDefinition.BORROW_RETURN_SEARCH:
+                        voiceToSearchActivity(intent.getStringExtra(StatusDefinition.BORROW_RETURN_SEARCH));
                         break;
                 }
             }

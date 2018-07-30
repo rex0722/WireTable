@@ -22,12 +22,12 @@ public class SpeechRecognition implements RecognitionListener {
 
     @Override
     public void onReadyForSpeech(Bundle params) {
-        Log.v("TAG","onReadyForSpeech");
+//        Log.v("TAG","onReadyForSpeech");
     }
 
     @Override
     public void onBeginningOfSpeech() {
-        Log.v("TAG","onBeginningOfSpeech");
+//        Log.v("TAG","onBeginningOfSpeech");
     }
 
     @Override
@@ -37,13 +37,13 @@ public class SpeechRecognition implements RecognitionListener {
 
     @Override
     public void onBufferReceived(byte[] buffer) {
-        Log.v("TAG","");
+//        Log.v("TAG","onBufferReceived");
     }
 
     @Override
     public void onEndOfSpeech() {
-        Log.v("TAG","onBufferReceived");
-
+//        Log.v("TAG","onEndOfSpeech");
+        Log.e("TAG", "目前狀態:" + StatusDefinition.CURRENT_STATUS);
         handler.postDelayed(()-> {
                 MainActivity.speech.startListening(MainActivity.recognizerIntent);
         },1000);
@@ -52,7 +52,7 @@ public class SpeechRecognition implements RecognitionListener {
 
     @Override
     public void onError(int error) {
-        Log.v("TAG","onError");
+//        Log.v("TAG","onError");
     }
 
     @Override
@@ -60,6 +60,8 @@ public class SpeechRecognition implements RecognitionListener {
         Log.v("TAG","onResults");
 
         ArrayList<String> match = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+
+        Log.w("TAG", "我收到:" + match.get(0));
 
         if (match != null && !StatusDefinition.CURRENT_STATUS.equals(StatusDefinition.QR_CODE_SCAN)){
             if (messageHandle(match.get(0))){

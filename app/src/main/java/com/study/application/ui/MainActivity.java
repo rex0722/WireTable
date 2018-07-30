@@ -21,18 +21,16 @@ import android.widget.Toast;
 import com.study.application.R;
 import com.study.application.fireBase.SpeechDataReader;
 import com.study.application.scanner.ScanQrCodeActivity;
-import com.study.application.speech.SpeechMessage;
+import com.study.application.speech.Classification;
 import com.study.application.speech.SpeechRecognition;
 import com.study.application.speech.SpeechSynthesis;
 import com.study.application.speech.StatusDefinition;
 
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "MainActivity";
     private static final int REQUEST_RECORD_PERMISSION = 100;
-    private ArrayList<SpeechMessage> messagesArrayList = new ArrayList<>();
     public static Context mContext;
     private MainBroadcast mainBroadcast = new MainBroadcast();
     private SpeechDataReader speechDataReader = new SpeechDataReader();
@@ -73,16 +71,41 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("TAG", "onResume");
+        Log.e("TAG", "MainActivity---onResume");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i("TAG", "onRestart");
+        Log.e("TAG", "MainActivity---onRestart");
         StatusDefinition.CURRENT_STATUS = StatusDefinition.LOGIN;
+        speech.startListening(recognizerIntent);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+//        speech.stopListening();
+        Log.e("TAG", "MainActivity---onStop");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e("TAG", "MainActivity---onStart");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e("TAG", "MainActivity---onPause");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("TAG", "MainActivity---onDestroy");
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
@@ -122,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.v("TAG", "voiceToLogin_inputClassification:" + inputClassification + ", size:" + SpeechDataReader.messagesArrayList.size());
 
-        if (inputClassification.equals(StatusDefinition.LOGIN)){
+        if (inputClassification.equals(Classification.LOGIN)){
             Log.v("TAG","QR code Scan START!!");
                 StatusDefinition.CURRENT_STATUS = StatusDefinition.QR_CODE_SCAN;
                 scanQrCodeActivityStartUp();
@@ -149,4 +172,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

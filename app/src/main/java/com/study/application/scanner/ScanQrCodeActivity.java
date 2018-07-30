@@ -36,6 +36,7 @@ import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOption
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.study.application.R;
 import com.study.application.animatedView.MorphView;
+import com.study.application.speech.StatusDefinition;
 import com.study.application.ui.BorrowReturnActivity;
 import com.study.application.ui.WelcomeActivity;
 
@@ -114,11 +115,13 @@ public class ScanQrCodeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_scan_qr_code);
 
+        StatusDefinition.CURRENT_STATUS = StatusDefinition.QR_CODE_SCAN;
         getBundleExtra();
         initView();
         initMorphView();
         initQrCodeScanner();
     }
+
 
     private void getBundleExtra() {
         Bundle bundle = getIntent().getExtras();
@@ -292,21 +295,46 @@ public class ScanQrCodeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e(TAG, "onResume");
+        Log.v("TAG", "ScanQrCodeActivity---onResume");
         startBackgroundThread();
         if (textureView.isAvailable()) {
             openCamera();
         } else {
             textureView.setSurfaceTextureListener(textureListener);
         }
+        StatusDefinition.CURRENT_STATUS = StatusDefinition.QR_CODE_SCAN;
     }
 
     @Override
     protected void onPause() {
-        Log.e(TAG, "onPause");
+        Log.v("TAG", "ScanQrCodeActivity---onPause");
         scanHandler.removeCallbacks(runnable);
         stopBackgroundThread();
         super.onPause();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.v("TAG", "ScanQrCodeActivity---onRestart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.v("TAG", "ScanQrCodeActivity---onStop");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.v("TAG", "ScanQrCodeActivity---onStart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.v("TAG", "ScanQrCodeActivity---onDestroy");
     }
 
 }
