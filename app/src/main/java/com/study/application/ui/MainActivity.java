@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private MainBroadcast mainBroadcast = new MainBroadcast();
     private SpeechDataReader speechDataReader = new SpeechDataReader();
     public static SpeechRecognizer speech = null;
-    public static Intent recognizerIntent;
+    public static Intent recognizerIntent = new Intent();
 
 
 
@@ -53,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
 
         speechDataReader.loginDataLoad();
 
-        recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "en");
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
+//        recognizerIntent = new Intent(ACTION_RECOGNIZE_SPEECH);
+//        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, "en");
+//        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+//        recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
 
         SpeechRecognition speechRecognition = new SpeechRecognition();
         speech = SpeechRecognizer.createSpeechRecognizer(this);

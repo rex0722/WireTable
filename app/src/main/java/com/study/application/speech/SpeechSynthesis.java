@@ -13,9 +13,9 @@ public class SpeechSynthesis {
 
     public static void createTTS(){
         if (textToSpeech == null){
-            textToSpeech = new TextToSpeech(MainActivity.mContext, new TextToSpeech.OnInitListener() {
-                @Override
-                public void onInit(int status) {
+
+            textToSpeech = new TextToSpeech(MainActivity.mContext, (status) ->{
+
                     if (status == TextToSpeech.SUCCESS){
                         int language = textToSpeech.setLanguage(Locale.TRADITIONAL_CHINESE);
 
@@ -23,10 +23,7 @@ public class SpeechSynthesis {
                             Toast.makeText(MainActivity.mContext, "語音不支持", Toast.LENGTH_SHORT).show();
                     }else
                         Log.d("TAG","語音合成尚未建立");
-                }
             });
         }
     }
-
-
 }
